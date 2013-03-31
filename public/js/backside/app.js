@@ -6,10 +6,11 @@ angular.module('backsideEpiManager', [
 	]).
 	config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     // <base href="/studio/">
+
 		$routeProvider.
 
 		when("/", {
-			templateUrl: "/backside/directives/navigation",
+			templateUrl: "/backside/dashboard",
 			controller: "backsideController"
   		}).
 

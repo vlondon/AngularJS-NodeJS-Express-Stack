@@ -5,6 +5,10 @@ module.exports = function(app) {
     return res.render("directives/navigation");
   });
 
+  app.get('/backside/dashboard', function(req, res) {
+    return res.render("backside/dashboard");
+  });
+
   // app.get('/login', function(req, res) {
   //   return res.render("www/chrome-public");
   // });
