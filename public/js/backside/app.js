@@ -10,19 +10,38 @@ angular.module('backsideEpiManager', [
 		$routeProvider.
 
 		when("/backside", {
-			templateUrl: "/backside/dashboard",
+			templateUrl: "/backside/dashboard/index",
 			controller: "backsideController"
   		}).
 
   		when("/backside/users", {
-  			templateUrl: "/backside/users",
+  			templateUrl: "/backside/users/index",
   			controller: "usersController"
+  		}).
+
+  		when("/backside/segments", {
+  			templateUrl: "/backside/segments/index",
+  			controller: "segmentsController"
+  		}).
+
+  		when("/backside/newsarticles", {
+  			templateUrl: "/backside/newsarticles/index",
+  			controller: "newsArticlesController"
+  		}).
+
+  		when("/backside/shortstories", {
+  			templateUrl: "/backside/shortstories/index",
+  			controller: "shortStoriesController"
+  		}).
+
+  		when("/backside/youtubelinks", {
+  			templateUrl: "/backside/youtubelinks/index",
+  			controller: "youTubeLinksController"
   		}).
 
 		otherwise({redirectTo: "/error"});
 
-		$locationProvider.html5Mode(true);
-    	$locationProvider.hashPrefix('!');
+		$locationProvider.html5Mode(true).hashPrefix('!');
 }]).
 	run(['$rootScope','$location','$window', '$templateCache', function(
 		$rootScope,$location,$window,$templateCache) {
