@@ -12,14 +12,12 @@ exports.index = function(req, res) {
 };
 exports.create = function(req, res) {
 	var data = req.body;
-	var newUser = new Model.User({
-		username: data.username,
-		fName: data.fName,
-		lName: data.lName,
-		password: data.password,
-		roleId: data.roleId,
-		createdAt: new Date(),
-		deletedAt: null
+	var newUser = new Model.User(data).save(function (err, newuser) {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log(newuser + " joined our site!!!");
+		}
 	});
 };
 exports.show = function(req, res) {

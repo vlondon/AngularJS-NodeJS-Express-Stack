@@ -10,6 +10,7 @@ var UserSchema = new Schema({
   password: String,
   email: String,
   roleId: Number,
+  lastLogin: { type: Date , default: Date.now },
   createdAt: { type: Date, default: Date.now },
   deletedAt: Date
 }, { autoIndex: false, collection: 'Users' });
