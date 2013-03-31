@@ -2,8 +2,8 @@
 
 angular.module('backsideEpiManager').
   controller('backsideController', [
-    '$scope','$resource',
-    function($scope, $resource) {
-      
+    '$scope',
+    function($scope) {
+      $scope.title = "The Title of My Table";
     }
   ])
