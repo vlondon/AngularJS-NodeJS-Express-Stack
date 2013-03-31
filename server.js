@@ -40,6 +40,7 @@ app.configure('development', function(){
 var wwwRoutes = require('./routes/www')(app);
 var resourceRoutes = require('./routes/resources')(app);
 var authRoutes = require('./routes/auth')(app);
+var backsideRoutes = require('./routes/backside')(app);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

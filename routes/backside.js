@@ -1,8 +1,8 @@
 module.exports = function(app) {
   var routing = this;
 
-  app.get('/', function(req, res) {
-    return res.render("temple", {title: "EpiManager"});
+  app.get('/backside/directives/navigation', function(req, res) {
+    return res.render("directives/navigation");
   });
 
   // app.get('/login', function(req, res) {

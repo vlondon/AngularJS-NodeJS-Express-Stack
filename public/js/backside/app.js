@@ -2,14 +2,14 @@
 
 // Declare app level module which depends on filters, and services
 angular.module('backsideEpiManager', [
+	'ngResource'
 	]).
 	config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     // <base href="/studio/">
-
 		$routeProvider.
 
 		when("/", {
-			templateUrl: "/studio/dashboard/index",
+			templateUrl: "/backside/directives/navigation",
 			controller: "backsideController"
   		}).
 
