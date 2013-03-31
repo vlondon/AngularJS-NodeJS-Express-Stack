@@ -1,11 +1,15 @@
 module.exports = function(app) {
   var routing = this;
 
-  app.get('/backside/directives/navigation', function(req, res) {
+  app.get('/backside', function (req, res) {
+    return res.render('temple', {title: 'Epimanger'})
+  })
+
+  app.get('/backside/directives/navigation', function (req, res) {
     return res.render("directives/navigation");
   });
 
-  app.get('/backside/dashboard', function(req, res) {
+  app.get('/backside/dashboard', function (req, res) {
     return res.render("backside/dashboard");
   });
 

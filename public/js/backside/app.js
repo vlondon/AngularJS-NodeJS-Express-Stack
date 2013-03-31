@@ -9,12 +9,12 @@ angular.module('backsideEpiManager', [
 
 		$routeProvider.
 
-		when("/", {
+		when("/backside", {
 			templateUrl: "/backside/dashboard",
 			controller: "backsideController"
   		}).
 
-  		when("/users", {
+  		when("/backside/users", {
   			templateUrl: "/backside/users",
   			controller: "usersController"
   		}).
