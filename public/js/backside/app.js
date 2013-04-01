@@ -15,25 +15,25 @@ angular.module('backsideEpiManager', [
 			controller: "backsideController"
   		}).
 
-  		when("/backside/users", {
-  			templateUrl: "/backside/users/index",
-  			controller: "usersController"
-  		}).
+      when("/backside/newsarticles", {
+        templateUrl: "/backside/newsarticles/index",
+        controller: "newsArticlesController"
+      }).
 
   		when("/backside/segments", {
   			templateUrl: "/backside/segments/index",
   			controller: "segmentsController"
   		}).
 
-  		when("/backside/newsarticles", {
-  			templateUrl: "/backside/newsarticles/index",
-  			controller: "newsArticlesController"
-  		}).
-
   		when("/backside/shortstories", {
   			templateUrl: "/backside/shortstories/index",
   			controller: "shortStoriesController"
   		}).
+
+      when("/backside/users", {
+        templateUrl: "/backside/users/index",
+        controller: "usersController"
+      }).
 
   		when("/backside/youtubelinks", {
   			templateUrl: "/backside/youtubelinks/index",

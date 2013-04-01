@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('backsideEpiManager').
-  controller('usersController', [
+  controller('shortStoriesController', [
     '$scope',
     function($scope) {
-      $scope.title = "Users";
+      $scope.title = "Short Stories";
     }
   ])

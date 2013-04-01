@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('backsideEpiManager').
-  controller('usersController', [
+  controller('youTubeLinksController', [
     '$scope',
     function($scope) {
-      $scope.title = "Users";
+      $scope.title = "Youtube Videos";
     }
   ])
