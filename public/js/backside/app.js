@@ -2,7 +2,8 @@
 
 // Declare app level module which depends on filters, and services
 angular.module('backsideEpiManager', [
-	'ngResource'
+	'ngResource',
+  '$strap.directives'
 	]).
 	config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     // <base href="/studio/">

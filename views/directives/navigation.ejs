@@ -1,4 +1,4 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top" bs-navbar>
       <div class="navbar-inner">
         <div class="container-fluid">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -6,18 +6,18 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">EpiManager</a>
+          <a class="brand" href="/backside">EpiManager</a>
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right">
               <a href="#" class="navbar-link">Username</a> | <a href="#" class="navbar-link">logout</a>
             </p>
             <ul class="nav">
-              <li class="active"><a href="/backside">Home</a></li>
-              <li><a href="/backside/users">Users</a></li>
-              <li><a href="/backside/segments">Segments</a></li>
-              <li><a href="/backside/newsarticles">News Articles</a></li>
-              <li><a href="/backside/shortstories">Short Stories</a></li>
-              <li><a href="/backside/youtubelinks">YouTube Links</a></li>
+              <li data-match-route="/backside"><a href="/backside">Home</a></li>
+              <li data-match-route="/backside/users"><a href="/backside/users">Users</a></li>
+              <li data-match-route="/backside/segments"><a href="/backside/segments">Segments</a></li>
+              <li data-match-route="/backside/newsarticles"><a href="/backside/newsarticles">News Articles</a></li>
+              <li data-match-route="/backside/shortstories"><a href="/backside/shortstories">Short Stories</a></li>
+              <li data-match-route="/backside/youtubeLinks"><a href="/backside/youtubelinks">YouTube Links</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
