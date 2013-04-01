@@ -20,6 +20,11 @@ angular.module('backsideEpiManager', [
   			controller: "usersController"
   		}).
 
+      when("/backside/users/new", {
+        templateUrl: "/backside/users/new",
+        controller: "usersNewController"
+      }).
+
   		when("/backside/segments", {
   			templateUrl: "/backside/segments/index",
   			controller: "segmentsController"

@@ -9,10 +9,10 @@ var UserSchema = new Schema({
   },
   password: String,
   email: String,
-  roleId: Number,
+  roleId: { type: Number, default: 5 },
   lastLogin: { type: Date , default: Date.now },
   createdAt: { type: Date, default: Date.now },
-  deletedAt: Date
+  deletedAt: { type: Date, default: null }
 }, { autoIndex: false, collection: 'Users' });
 
 UserSchema.virtual('name.full').set(function (name) {

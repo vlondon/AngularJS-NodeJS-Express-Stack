@@ -6,5 +6,5 @@ angular.module('backsideEpiManager').
       'save': { method: 'PUT' },
       'create': { method: 'POST' }
     });
-    return artist;
+    return user;
   }])
