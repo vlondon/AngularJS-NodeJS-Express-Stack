@@ -3,10 +3,10 @@
     <div class="span3">
       <div class="well sidebar-nav">
         <ul class="nav nav-list">
-        <li class="active"><a href="#"><i class="icon-home"></i> All {{title}}</a></li>
-    	   <li><a href="#"><i class=""></i> Table 1</a></li>
-    	   <li><a href="#"><i class=""></i> Table 2</a></li>
-    	   <li><a href="#"><i class=""></i> Table 3</a></li>
+         <li class="active"><a href="#"><i class="icon-home"></i> All {{title}}</a></li>
+         <li><a href="#"><i class=""></i> Predifined Query 1</a></li>
+         <li><a href="#"><i class=""></i> Predifined Query 2</a></li>
+         <li><a href="#"><i class=""></i> Predifined Query 3</a></li>
         </ul>
       </div><!--/.well -->
     </div><!--/span-->
@@ -14,18 +14,38 @@
 
     <h2>{{title}}</h2>
     
-    <table class="table table-bordered">
-      <tr>
-        <td>first</td><td>second</td><td>third</td><td>fourth</td><td>fifth</td>
-      </tr>
-      <tr>
-        <td>{{first}}</td>
-        <td>{{second}}</td>
-        <td>{{third}}</td>
-        <td>{{fourth}}</td>
-        <td>{{fifth}}</td>
-      </tr>
+    <table id="segments-table" class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>first</th>
+          <th>second</th>
+          <th>third</th>
+          <th>fourth</th>
+          <th>fifth</th>
+        </tr>
+      </thead>
+
+      <tfoot>
+        <tr>
+          <th>first</th>
+          <th>second</th>
+          <th>third</th>
+          <th>fourth</th>
+          <th>fifth</th>
+        </tr>
+      </tfoot>
+
+      <tbody>
+        <tr ng-repeat="" style="height:59px">
+          <td>{{data}}</td>
+          <td>{{data}}</td>
+          <td>{{data}}</td>
+          <td>{{data}}</td>
+          <td>{{data}}</td>
+        </tr>
+      </tbody>
     </table>
+
     </div><!--/span-->
   </div><!--/row-->
 </div><!--/.fluid-container-->
