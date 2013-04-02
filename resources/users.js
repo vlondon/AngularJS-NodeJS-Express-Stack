@@ -20,7 +20,12 @@ exports.index = function(req, res) {
 		deletedAt: null
 	}, function (err, person) {
 		if (err) return console.log(err);
-		res.send(201, _.pick(person, showFields));
+		var people = [];
+		for (var i = 0; i < person.length; i++) {
+			var shakedown = _.pick(person[i], showFields);
+			people.push(shakedown);
+		}
+		res.send(201, people);
 	});
 };
 exports.create = function(req, res) {
