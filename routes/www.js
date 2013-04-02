@@ -2,7 +2,25 @@ module.exports = function(app) {
   var routing = this;
 
   app.get('/', function (req, res) {
-    return res.render('construction');
+    return res.render('www/temple', {title: 'Epimanger -user'});
+  })
+
+  app.get('/www/directives/navigation', function (req, res) {
+    return res.render("www/directives/navigation");
+  });
+
+  app.all('/www/*', function(req, res, next) {
+    var angular = (req.headers['x-requested-with'] === 'XMLHttpRequest') ? true : false;
+    if (angular) {
+      next();
+    }
+    else {
+      return res.redirect('www/temple', {title: 'wwwEpimanger'});
+    }
+  });
+
+  app.get('/www/:directory/:view', function(req, res) {
+    res.render("www/"+req.params.directory+"/"+req.params.view);
   });
 
   // app.get('/login', function(req, res) {
