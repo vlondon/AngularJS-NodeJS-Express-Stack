@@ -8,6 +8,5 @@ angular.module('backsideEpiManager').
       User.query(function (users) {
       	$scope.data = users;
       });
-
     }
   ])
