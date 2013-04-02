@@ -6,7 +6,6 @@ exports.index = function(req, res) {
 	console.log('pinged');
 	Model.User.find({}, function (err, person) {
 		if (err) return console.log(err);
-		console.log('person');
 		res.send(201, person);
 	});
 };
@@ -17,6 +16,7 @@ exports.create = function(req, res) {
 			console.log(err);
 		} else {
 			console.log(newuser + " joined our site!!!");
+			res.send(201);
 		}
 	});
 };

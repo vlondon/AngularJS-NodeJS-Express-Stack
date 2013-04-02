@@ -2,8 +2,11 @@
 
 angular.module('backsideEpiManager').
   controller('usersController', [
-    '$scope',
-    function($scope) {
-      $scope.title = "Users";
+    '$scope','$resource', 'User', 
+    function($scope, $resource, User) {
+    	
+      User.query(function (users) {
+      	$scope.data = users;
+      });
     }
   ])
