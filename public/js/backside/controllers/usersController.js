@@ -13,7 +13,7 @@ angular.module('backsideEpiManager').
 
       $scope.deleteUser = function (username) {
         console.log('clicked!');
-        User.remove({username: username}, function (event) {
+        User.delete({username: username}, function (event) {
           $scope.loadData();
         });
       }
@@ -24,7 +24,7 @@ angular.module('backsideEpiManager').
     '$scope','$resource', '$location', 'User', 
     function($scope, $resource, $location, User) {
       $scope.save = function(){
-        User.create($scope.user, function (event) {
+        User.save({}, $scope.user, function (event) {
           $location.path("/backside/users");
         }, function (err) {
           console.log(err);
@@ -35,10 +35,11 @@ angular.module('backsideEpiManager').
   controller('usersEditController', [
     '$scope','$resource', '$routeParams', '$location', 'User', 
     function($scope, $resource, $routeParams, $location, User) {
+      
       $scope.user = User.get($routeParams);
 
       $scope.update = function(){
-        User.save($scope.user, function (event) {
+        User.update($scope.user, function (event) {
           $location.path("/backside/users");
         }, function (err) {
           console.log(err);

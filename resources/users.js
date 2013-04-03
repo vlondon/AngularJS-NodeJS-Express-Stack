@@ -69,7 +69,7 @@ exports.update = function(req, res) {
 			console.log(err);
 			res.send(404, err);
 		} else {
-			console.log(person._id + 'was updated');
+			console.log(person._id + ' was updated');
 			res.send(201, _.pick(person, showFields));
 		}
 	});
@@ -87,7 +87,7 @@ exports.destroy = function(req, res) {
 				console.log(err);
 				res.send(404, err);
 			} else {
-				console.log(person._id + 'was deleted');
+				console.log(person._id + ' was deleted');
 				res.send(201);
 			}
 		});
