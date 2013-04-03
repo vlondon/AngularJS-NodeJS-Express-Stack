@@ -59,32 +59,40 @@ exports.show = function(req, res) {
 	 }
 };
 exports.update = function(req, res) {
-	var params = req.params.user;
+	var userId = req.body._id;
 	var body = _.pick(req.body, validFields);
-		if (params) {
-			Model.User.findOne({
-		 		username: params
-		 	}, function (err, person) {
-				if (err) {
-					console.log(err);
-					res.send(404, err);
-				} else {
-					var push = _.omit(person, validFields);
-					var newPerson = _.extend(push, body);
-					newPerson.save(function (err){
-						if (err) {
-							console.log(err);
-							res.send(404, err);
-						} else {
-							res.send(201, _.pick(newPerson, showFields));
-						}
-					});
-				}
-			});
-		 } else {
-		 	res.send(404);
-		 }
+	Model.User.findByIdAndUpdate(
+		userId, 
+		body, 
+		function (err, person) {
+		if (err) {
+			console.log(err);
+			res.send(404, err);
+		} else {
+			console.log(person._id + 'was updated');
+			res.send(201, _.pick(person, showFields));
+		}
+	});
 };
 exports.destroy = function(req, res) {
- 
+	var params = req.params.user;
+	var deleteDate = new Date();
+	if (params) {
+		Model.User.findOneAndUpdate({
+			username: params
+		}, {
+			deletedAt: deleteDate
+		}, function (err, person) {
+			if (err) {
+				console.log(err);
+				res.send(404, err);
+			} else {
+				console.log(person._id + 'was deleted');
+				res.send(201);
+			}
+		});
+	} else {
+
+	}
+
 };

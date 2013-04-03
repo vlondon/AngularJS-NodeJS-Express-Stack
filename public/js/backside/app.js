@@ -20,9 +20,19 @@ angular.module('backsideEpiManager', [
         controller: "newsArticlesController"
       }).
 
+      when("/backside/users", {
+        templateUrl: "/backside/users/index",
+        controller: "usersController"
+      }).
+
       when("/backside/users/new", {
         templateUrl: "/backside/users/new",
         controller: "usersNewController"
+      }).
+
+      when("/backside/users/:username", {
+        templateUrl: "/backside/users/edit",
+        controller: "usersEditController"
       }).
 
   		when("/backside/segments", {
@@ -34,11 +44,6 @@ angular.module('backsideEpiManager', [
   			templateUrl: "/backside/shortstories/index",
   			controller: "shortStoriesController"
   		}).
-
-      when("/backside/users", {
-        templateUrl: "/backside/users/index",
-        controller: "usersController"
-      }).
 
   		when("/backside/youtubelinks", {
   			templateUrl: "/backside/youtubelinks/index",
