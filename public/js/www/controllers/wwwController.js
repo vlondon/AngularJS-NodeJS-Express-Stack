@@ -6,6 +6,6 @@ angular.module('wwwEpiManager').
   controller('wwwController', [
     '$scope',
     function($scope) {
-      $scope.title = "EpiManager User Home";
+      $scope.title = "EpiManager";
     }
   ])

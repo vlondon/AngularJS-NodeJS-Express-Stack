@@ -2,7 +2,7 @@ module.exports = function(app) {
   var routing = this;
 
   app.get('/', function (req, res) {
-    return res.render('www/temple', {title: 'Epimanger -user'});
+    return res.render('www/temple', {title: 'Epimanger'});
   })
 
   app.get('/www/directives/navigation', function (req, res) {
@@ -15,7 +15,7 @@ module.exports = function(app) {
       next();
     }
     else {
-      return res.redirect('www/temple', {title: 'wwwEpimanger'});
+      return res.redirect('/www', {title: 'wwwEpimanger'});
     }
   });
 

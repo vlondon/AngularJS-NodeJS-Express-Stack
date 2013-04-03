@@ -9,8 +9,8 @@ angular.module('wwwEpiManager', [
     // <base href="/studio/">
 
 		$routeProvider.
-
-		when("/www", {
+		//allows use of
+		when("/", {
 			templateUrl: "/www/homepage/index",
 			controller: "wwwController"
   		}).
