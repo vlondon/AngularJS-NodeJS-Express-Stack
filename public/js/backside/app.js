@@ -15,11 +15,6 @@ angular.module('backsideEpiManager', [
 			controller: "backsideController"
   		}).
 
-      when("/backside/newsarticles", {
-        templateUrl: "/backside/newsarticles/index",
-        controller: "newsArticlesController"
-      }).
-
       when("/backside/users", {
         templateUrl: "/backside/users/index",
         controller: "usersController"
@@ -35,20 +30,6 @@ angular.module('backsideEpiManager', [
         controller: "usersEditController"
       }).
 
-  		when("/backside/segments", {
-  			templateUrl: "/backside/segments/index",
-  			controller: "segmentsController"
-  		}).
-
-  		when("/backside/shortstories", {
-  			templateUrl: "/backside/shortstories/index",
-  			controller: "shortStoriesController"
-  		}).
-
-  		when("/backside/youtubelinks", {
-  			templateUrl: "/backside/youtubelinks/index",
-  			controller: "youTubeLinksController"
-  		}).
 
 		otherwise({redirectTo: "/error"});
 

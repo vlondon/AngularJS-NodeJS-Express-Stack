@@ -2,19 +2,20 @@ module.exports = function(app) {
   var routing = this;
 
   app.get('/backside', function (req, res) {
-    return res.render('backside/temple', {title: 'Epimanager'});
+    return res.render('backside/temple', {title: 'Epimanger'});
   })
 
   app.get('/backside/directives/navigation', function (req, res) {
-    return res.render("directives/navigation");
+    console.log('ping');
+    return res.render("backside/directives/navigation");
   });
 
   app.all('/backside/*', function(req, res, next) {
-    if (req.xhr) {
+     if (req.xhr) {
       next();
     }
     else {
-      res.render('backside/temple', {title: 'Epimanager'})
+      res.render('backside/temple');
     }
   });
       

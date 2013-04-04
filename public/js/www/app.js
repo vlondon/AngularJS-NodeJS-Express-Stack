@@ -6,10 +6,10 @@ angular.module('wwwEpiManager', [
   '$strap.directives'
 	]).
 	config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-    // <base href="/studio/">
+
 
 		$routeProvider.
-		//allows use of
+		
 		when("/", {
 			templateUrl: "/www/homepage/index",
 			controller: "homepageController"

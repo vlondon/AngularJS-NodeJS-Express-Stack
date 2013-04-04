@@ -2,6 +2,7 @@ module.exports = function(app) {
   var routing = this;
 
   app.get('/', function (req, res) {
+    console.log('ping');
     return res.render('www/temple', {title: 'Epimanger'});
   })
 
