@@ -15,7 +15,7 @@ module.exports = function(app) {
       next();
     }
     else {
-      return res.redirect('/www', {title: 'wwwEpimanger'});
+      return res.redirect('/www');
     }
   });
 

@@ -37,6 +37,7 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
+var appRoutes = require('./routes/app')(app);
 var wwwRoutes = require('./routes/www')(app);
 var resourceRoutes = require('./routes/resources')(app);
 var authRoutes = require('./routes/auth')(app);
