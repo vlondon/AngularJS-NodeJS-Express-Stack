@@ -14,4 +14,17 @@ padding: 9px 0;
   float: none;
   padding-left: 5px;
   padding-right: 5px;
+}}
+
+.hero-unit {
+  color:#333333;	
+}
+
+.btn-large{
+  height: 40px;
+  vertical-align: middle;
+}
+
+.carousel-control{
+  line-height: 30px;
 }

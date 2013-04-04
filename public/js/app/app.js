@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('wwwEpiManager', [
+angular.module('appEpiManager', [
 	'ngResource',
   '$strap.directives'
 	]).
@@ -9,16 +9,12 @@ angular.module('wwwEpiManager', [
     // <base href="/studio/">
 
 		$routeProvider.
-		//allows use of
-		when("/", {
-			templateUrl: "/www/homepage/index",
-			controller: "homepageController"
+
+		when("/app", {
+			templateUrl: "/app/dashboard/index",
+			controller: "appDashController"
   		}).
 
-  		when("/producer", {
-			templateUrl: "/www/producer/index",
-			controller: "producerController"
-  		}).
 
 		otherwise({redirectTo: "/error"});
 

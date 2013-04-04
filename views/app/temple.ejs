@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="wwwEpiManager">
+<html ng-app="appEpiManager">
   <head>
     <meta charset="utf-8">
     <title><%= title %></title>
@@ -22,7 +22,7 @@
   </head>
 
   <body>
-    <www-navigation></www-navigation>
+    <app-navigation></app-navigation>
     <div ng-view></div>
     
     <!--JS Files-->
@@ -31,9 +31,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular-resource.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-strap/0.7.1/angular-strap.min.js"></script>
-    <script src="js/www/app.js"></script>
-    <script src="js/www/controllers/homepageController.js"></script>
-    <script src="js/www/controllers/producerController.js"></script>
-    <script src="js/directives/www-navigation.js"></script>
+    <script src="js/app/app.js"></script>
+    <script src="js/app/controllers/appDashController.js"></script>
+    <script src="js/directives/app-navigation.js"></script>
   </body>
 </html>
