@@ -15,7 +15,7 @@ module.exports = function(app) {
       next();
     }
     else {
-      res.render('backside/temple');
+      res.render('backside/temple', {title: 'Epimanager'});
     }
   });
       
