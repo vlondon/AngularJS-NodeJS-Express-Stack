@@ -36,16 +36,27 @@ exports.create = function(req, res) {
 				$or : [{username: data.username}, {email: data.email}],
 				deletedAt: null
 			}, function (err, person) {
+				var p = {}
+				  , d = {};
 				if (err){
 					console.log(err);
 				} else if (!person) {
 					cb(null);
-				} else if ((person.username != data.username) && (person.email == data.email)) {
-					res.send(401, {message: "user email exists"});
-				} else if ((person.username == data.username) && (person.email != data.email)) {
-					res.send(401, {message: "username exists"});
-				} else if ((person.username == data.username) && (person.email == data.email)) {
-					res.send(401, {message: "user already exists"});
+				} else if (person) {
+					p.un = person.username.toLowerCase();
+					p.em = person.email;
+					d.un = data.username.toLowerCase();
+					d.em = data.email.toLowerCase();
+
+					if ((p.un != d.un) && (p.em == d.em)) {
+						res.send(401, {message: "user email exists"});
+					} else if ((p.un == d.un) && (p.em != d.em)) {
+						res.send(401, {message: "username exists"});
+					} else if ((p.un == d.un) && (p.em == d.em)) {
+						res.send(401, {message: "user already exists"});
+					} else {
+						res.send(404, {message: "error when saving"});
+					}
 				} else {
 					res.send(404, {message: "error when saving"});
 				}
@@ -90,16 +101,27 @@ exports.update = function(req, res) {
 				$nor: [{_id: userId}], 
 				deletedAt: null
 			}, function (err, person) {
+				var p = {}
+				  , d = {}; 
 				if (err){
 					console.log(err);
 				} else if (!person) {
 					cb(null);
-				} else if ((person.username != data.username) && (person.email == data.email)) {
-					res.send(401, {message: "user email exists"});
-				} else if ((person.username == data.username) && (person.email != data.email)) {
-					res.send(401, {message: "username exists"});
-				} else if ((person.username == data.username) && (person.email == data.email)) {
-					res.send(401, {message: "user already exists"});
+				} else if (person) {
+					p.un = person.username.toLowerCase();
+					p.em = person.email;
+					d.un = data.username.toLowerCase();
+					d.em = data.email.toLowerCase();
+
+					if ((p.un != d.un) && (p.em == d.em)) {
+						res.send(401, {message: "user email exists"});
+					} else if ((p.un == d.un) && (p.em != d.em)) {
+						res.send(401, {message: "username exists"});
+					} else if ((p.un == d.un) && (p.em == d.em)) {
+						res.send(401, {message: "user already exists"});
+					} else {
+						res.send(404, {message: "error when saving"});
+					}
 				} else {
 					res.send(404, {message: "error when saving"});
 				}
