@@ -29,17 +29,39 @@ exports.index = function(req, res) {
 	});
 };
 exports.create = function(req, res) {
-	// Underscore picks from req.body the validFields
 	var data = _.pick(req.body, validFields);
-	// Save the new User
-	var newUser = new Model.User(data).save(function (err, newuser) {
-		if (err) {
-			console.log(err);
-		} else {
-			console.log(newuser + " joined our site!!!");
-			res.send(201);
+	async.waterfall([
+		function (cb) {
+			Model.User.findOne({
+				$or : [{username: data.username}, {email: data.email}],
+				deletedAt: null
+			}, function (err, person) {
+				if (err){
+					console.log(err);
+				} else if (!person) {
+					cb(null);
+				} else if ((person.username != data.username) && (person.email == data.email)) {
+					res.send(401, {message: "user email exists"});
+				} else if ((person.username == data.username) && (person.email != data.email)) {
+					res.send(401, {message: "username exists"});
+				} else if ((person.username == data.username) && (person.email == data.email)) {
+					res.send(401, {message: "user already exists"});
+				} else {
+					res.send(404, {message: "error when saving"});
+				}
+			});
+		},
+		function (cb) {
+			var newUser = new Model.User(data).save(function (err, newuser) {
+				if (err) {
+					console.log(err);
+				} else {
+					console.log(newuser + " joined our site!!!");
+					res.send(201);
+				}
+			});
 		}
-	});
+	])
 };
 exports.show = function(req, res) {
 	 var params = req.params.user;
@@ -60,19 +82,44 @@ exports.show = function(req, res) {
 };
 exports.update = function(req, res) {
 	var userId = req.body._id;
-	var body = _.pick(req.body, validFields);
-	Model.User.findByIdAndUpdate(
-		userId, 
-		body, 
-		function (err, person) {
-		if (err) {
-			console.log(err);
-			res.send(404, err);
-		} else {
-			console.log(person._id + ' was updated');
-			res.send(201, _.pick(person, showFields));
+	var data = _.pick(req.body, validFields);
+	async.waterfall([
+		function (cb) {
+			Model.User.findOne({
+				$or: [{username: data.username}, {email: data.email}],
+				$nor: [{_id: userId}], 
+				deletedAt: null
+			}, function (err, person) {
+				if (err){
+					console.log(err);
+				} else if (!person) {
+					cb(null);
+				} else if ((person.username != data.username) && (person.email == data.email)) {
+					res.send(401, {message: "user email exists"});
+				} else if ((person.username == data.username) && (person.email != data.email)) {
+					res.send(401, {message: "username exists"});
+				} else if ((person.username == data.username) && (person.email == data.email)) {
+					res.send(401, {message: "user already exists"});
+				} else {
+					res.send(404, {message: "error when saving"});
+				}
+			});
+		},
+		function(cb) {
+			Model.User.findByIdAndUpdate(
+			userId, 
+			data, 
+			function (err, person) {
+				if (err) {
+					console.log(err);
+					res.send(404, err);
+				} else {
+					console.log(person._id + ' was updated');
+					res.send(201, _.pick(person, showFields));
+				}
+			});
 		}
-	});
+	])
 };
 exports.destroy = function(req, res) {
 	var params = req.params.user;
