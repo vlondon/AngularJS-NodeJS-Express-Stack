@@ -10,12 +10,11 @@ module.exports = function(app) {
   });
 
   app.all('/www/*', function(req, res, next) {
-    var angular = (req.headers['x-requested-with'] === 'XMLHttpRequest') ? true : false;
-    if (angular) {
+    if (req.xhr) {
       next();
     }
     else {
-      return res.redirect('/www');
+      res.render('www/temple');
     }
   });
 

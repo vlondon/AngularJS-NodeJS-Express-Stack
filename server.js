@@ -43,6 +43,10 @@ var resourceRoutes = require('./routes/resources')(app);
 var authRoutes = require('./routes/auth')(app);
 var backsideRoutes = require('./routes/backside')(app);
 
+app.get('*', function (req, res) {
+  res.redirect('/');
+});
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });

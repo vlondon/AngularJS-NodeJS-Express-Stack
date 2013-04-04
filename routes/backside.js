@@ -2,7 +2,7 @@ module.exports = function(app) {
   var routing = this;
 
   app.get('/backside', function (req, res) {
-    return res.render('backside/temple', {title: 'Epimanger'});
+    return res.render('backside/temple', {title: 'Epimanager'});
   })
 
   app.get('/backside/directives/navigation', function (req, res) {
@@ -10,12 +10,11 @@ module.exports = function(app) {
   });
 
   app.all('/backside/*', function(req, res, next) {
-    var angular = (req.headers['x-requested-with'] === 'XMLHttpRequest') ? true : false;
-    if (angular) {
+    if (req.xhr) {
       next();
     }
     else {
-      return res.redirect('/backside');
+      res.render('backside/temple', {title: 'Epimanager'})
     }
   });
       
