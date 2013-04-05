@@ -13,4 +13,5 @@ var db = mongoose.connect('mongodb://nodejs:lnemspod@linus.mongohq.com:10043/app
 module.exports = {
 	User: require('./schemas/UserSchema').User,
 	Roles: require('./schemas/RolesSchema').Roles,
+	Studio: require('./schemas/StudioSchema').Studio
 }
