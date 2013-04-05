@@ -28,3 +28,14 @@ padding: 9px 0;
 .carousel-control{
   line-height: 30px;
 }
+
+.app-top-nav{
+	position: fixed;
+	width: 100%;
+	background: #781096;
+}
+
+.app-body{
+	padding-top: 0px;
+}
+
