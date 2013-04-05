@@ -3,7 +3,7 @@ module.exports = function(app) {
 
   app.get('/', function (req, res) {
     console.log('ping');
-    return res.render('www/temple', {title: 'Epimanger'});
+    return res.render('www/temple');
   })
 
   app.get('/www/directives/navigation', function (req, res) {

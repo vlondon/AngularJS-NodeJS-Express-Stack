@@ -8,35 +8,33 @@
     <meta name="author" content="">
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' />
-    <link href="http://localhost:3000/css/bootstrap-responsive.min.css" rel="stylesheet" /> 
-    <link href="http://localhost:3000/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="http://localhost:3000/css/bootmetro.css" rel="stylesheet" />
-    <link href="http://localhost:3000/css/bootmetro-tiles.css" rel="stylesheet" />
-    <link href="http://localhost:3000/css/bootmetro-charms.css" rel="stylesheet" />
+    <link href="<%= staticAssetHost %>/css/bootstrap-responsive.min.css" rel="stylesheet" /> 
+    <link href="<%= staticAssetHost %>/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="<%= staticAssetHost %>/css/bootmetro.css" rel="stylesheet" />
+    <link href="<%= staticAssetHost %>/css/bootmetro-tiles.css" rel="stylesheet" />
+    <link href="<%= staticAssetHost %>/css/bootmetro-charms.css" rel="stylesheet" />
     <!-- <link href='css/metro-ui-light.css' rel='stylesheet' /> -->
-    <link href="http://localhost:3000/css/metro-ui-dark.css" rel="stylesheet" />
-    <link href="http://localhost:3000/css/icomoon.css" rel="stylesheet" />
-    <link href="http://localhost:3000/css/bootmetro-charms.css" rel="stylesheet" />
-    <link href="http://localhost:3000/css/style.css" rel="stylesheet" />
+    <link href="<%= staticAssetHost %>/css/metro-ui-dark.css" rel="stylesheet" />
+    <link href="<%= staticAssetHost %>/css/icomoon.css" rel="stylesheet" />
+    <link href="<%= staticAssetHost %>/css/bootmetro-charms.css" rel="stylesheet" />
+    <link href="<%= staticAssetHost %>/css/style.css" rel="stylesheet" />
+
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="<%= staticAssetHost %>/js/lib/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular-resource.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-strap/0.7.1/angular-strap.min.js"></script>
+    <script src="<%= staticAssetHost %>/js/backside/app.js"></script>
+    <script src="<%= staticAssetHost %>/js/backside/controllers/backsideController.js"></script>
+    <script src="<%= staticAssetHost %>/js/backside/controllers/usersController.js"></script>
+    <script src="<%= staticAssetHost %>/js/backside/directives/backside-navigation.js"></script>
+    <script src="<%= staticAssetHost %>/js/services/services.js"></script>
   </head>
 
   <body>
     <backside-navigation></backside-navigation>
     <div ng-view></div>
     <!--JS Files-->
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script src="http://localhost:3000/js/lib/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular-resource.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-strap/0.7.1/angular-strap.min.js"></script>
-    <script src="http://localhost:3000/js/backside/app.js"></script>
-    <script src="http://localhost:3000/js/backside/controllers/backsideController.js"></script>
-    <script src="http://localhost:3000/js/backside/controllers/newsArticlesController.js"></script>
-    <script src="http://localhost:3000/js/backside/controllers/segmentsController.js"></script>
-    <script src="http://localhost:3000/js/backside/controllers/shortStoriesController.js"></script>
-    <script src="http://localhost:3000/js/backside/controllers/usersController.js"></script>
-    <script src="http://localhost:3000/js/backside/controllers/youTubeLinksController.js"></script>
-    <script src="http://localhost:3000/js/backside/directives/backside-navigation.js"></script>
-    <script src="http://localhost:3000/js/services/services.js"></script>
+    
   </body>
 </html>
