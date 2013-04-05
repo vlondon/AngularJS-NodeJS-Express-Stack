@@ -9,7 +9,7 @@ var StudioSchema = new Schema({
   deletedAt: { type: Date, default: null }
 }, { autoIndex: false, collection: 'Users' });
 
-var Studio = mongoose.model('Studio', UserSchema);
+var Studio = mongoose.model('Studio', StudioSchema);
 
 // User.remove({}, function (err) {
 //   console.log('all clear!');

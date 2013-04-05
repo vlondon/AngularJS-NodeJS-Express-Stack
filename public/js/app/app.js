@@ -15,6 +15,10 @@ angular.module('appEpiManager', [
 			controller: "appDashController"
   		}).
 
+		when("/app/cast", {
+			templateUrl: "/app/cast/index",
+			controller: "appCastController"
+  		}).
 
 		otherwise({redirectTo: "/error"});
 

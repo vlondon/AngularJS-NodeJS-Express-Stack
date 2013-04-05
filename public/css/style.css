@@ -33,6 +33,7 @@ padding: 9px 0;
 	position: fixed;
 	width: 100%;
 	background: #781096;
+	z-index: 2;
 }
 
 .app-body{
