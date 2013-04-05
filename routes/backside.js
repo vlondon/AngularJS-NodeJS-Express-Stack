@@ -2,7 +2,7 @@ module.exports = function(app) {
   var routing = this;
 
   app.get('/backside', function (req, res) {
-    return res.render('backside/temple', {title: 'Epimanger'});
+    return res.render('backside/temple');
   })
 
   app.get('/backside/directives/navigation', function (req, res) {
@@ -15,7 +15,7 @@ module.exports = function(app) {
       next();
     }
     else {
-      res.render('backside/temple', {title: 'Epimanager'});
+      res.render('backside/temple');
     }
   });
       
