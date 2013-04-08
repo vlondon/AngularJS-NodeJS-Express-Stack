@@ -23,13 +23,24 @@ angular.module('backsideEpiManager').
   controller('usersNewController', [
     '$scope','$resource', '$location', 'User', 
     function($scope, $resource, $location, User) {
+      
       $scope.save = function(){
         User.save({}, $scope.user, function (event) {
           $location.path("/backside/users");
         }, function (err) {
           console.log(err);
+        });
+      }
+
+      $scope.checkUsername = function (){
+        if (!$scope.user) return;
+        if (!$scope.user.username) return;
+        if (!$scope.user.username.length) return;
+        User.query({username: $scope.user.username}, function (users) {
+          console.log(users);
         })
       }
+
     }
   ]).
   controller('usersEditController', [

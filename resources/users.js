@@ -1,6 +1,7 @@
 var   Model = EpiManager.Model
 	, _ = require("underscore")
-	, async = require('async');
+	, async = require('async')
+	, url = require('url');
 
 var validFields =  ['username',
 					'name',
@@ -17,12 +18,51 @@ var showFields =   ['username',
 var selectedValues = '_id username name email lastLogin roleId createdAt';
 
 exports.index = function(req, res) {
-	Model.User.find({
-		deletedAt: null
-	}, selectedValues, function (err, people) {
-		if (err) return console.log(err);
-		res.send(201, people);
-	});
+	async.waterfall([
+		function (cb) {
+			var params = url.parse(req.url, true).query;
+			if (_.keys(params).length) {
+				cb(null, params);
+			} else {
+				Model.User.find({
+					deletedAt: null
+				}, selectedValues, function (err, people) {
+					if (err) return console.log(err);
+					console.log('all');
+					res.send(201, people);
+				});
+			}
+		},
+		function (params, cb) {
+			if (params.username){
+				Model.User.find({
+					username_lower: params.username.toLowerCase(),
+					deletedAt: null
+				}, selectedValues, function (err, person) {
+					if (err) return console.log(err);
+					if (person) {
+						res.send(201, person);
+					} else {
+						res.send(404, [{message: "not found"}]);
+					}
+				});
+			} else if (params.email) {
+				Model.User.find({
+					email: params.username.toLowerCase(),
+					deletedAt: null
+				}, selectedValues, function (err, person) {
+					if (err) return console.log(err);
+					if (person) {
+						res.send(201, person);
+					} else {
+						res.send(404, [{message: "not found"}]);
+					}
+				});
+			} else {
+				res.send(404, [{message: "invalid criteria"}]);
+			}
+		}
+	])
 };
 exports.create = function(req, res) {
 	var data = _.pick(req.body, validFields);
