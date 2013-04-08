@@ -14,17 +14,13 @@ var showFields =   ['username',
 					'lastLogin',
 					'roleId',
 					'createdAt'];
+var selectedValues = '_id username name email lastLogin roleId createdAt';
 
 exports.index = function(req, res) {
 	Model.User.find({
 		deletedAt: null
-	}, function (err, person) {
+	}, selectedValues, function (err, people) {
 		if (err) return console.log(err);
-		var people = [];
-		for (var i = 0; i < person.length; i++) {
-			var shakedown = _.pick(person[i], showFields);
-			people.push(shakedown);
-		}
 		res.send(201, people);
 	});
 };
@@ -33,7 +29,7 @@ exports.create = function(req, res) {
 	async.waterfall([
 		function (cb) {
 			Model.User.findOne({
-				$or : [{username: data.username}, {email: data.email}],
+				$or : [{username_lower: data.username.toLowerCase()}, {email: data.email.toLowerCase()}],
 				deletedAt: null
 			}, function (err, person) {
 				var p = {}
@@ -78,13 +74,14 @@ exports.show = function(req, res) {
 	 var params = req.params.user;
 	 if (params) {
 	 	Model.User.findOne({
-	 		username: params
-	 	}, function (err, person) {
+	 		_id: params,
+	 		deletedAt: null
+	 	}, selectedValues, function (err, person) {
 			if (err) {
 				console.log(err);
 				res.send(404, err);
 			} else {
-				res.send(201, _.pick(person, showFields));
+				res.send(201, person);
 			}
 		});
 	 } else {
@@ -94,10 +91,12 @@ exports.show = function(req, res) {
 exports.update = function(req, res) {
 	var userId = req.body._id;
 	var data = _.pick(req.body, validFields);
+	console.log(req.body);
+	console.log(data);
 	async.waterfall([
 		function (cb) {
 			Model.User.findOne({
-				$or: [{username: data.username}, {email: data.email}],
+				$or: [{username_lower: data.username.toLowerCase()}, {email: data.email.toLowerCase()}],
 				$nor: [{_id: userId}], 
 				deletedAt: null
 			}, function (err, person) {
@@ -108,7 +107,7 @@ exports.update = function(req, res) {
 				} else if (!person) {
 					cb(null);
 				} else if (person) {
-					p.un = person.username.toLowerCase();
+					p.un = person.username_lower;
 					p.em = person.email;
 					d.un = data.username.toLowerCase();
 					d.em = data.email.toLowerCase();
@@ -128,16 +127,22 @@ exports.update = function(req, res) {
 			});
 		},
 		function(cb) {
-			Model.User.findByIdAndUpdate(
+			Model.User.findById(
 			userId, 
-			data, 
 			function (err, person) {
 				if (err) {
 					console.log(err);
 					res.send(404, err);
 				} else {
-					console.log(person._id + ' was updated');
-					res.send(201, _.pick(person, showFields));
+					async.each(_.keys(data), function(i, cb){
+						person[i] = data[i];
+						cb(err);
+					}, function (err) {
+						if (err) console.log(err);
+						person.save();
+						console.log(person._id + ' was updated');
+						res.send(201);
+					});
 				}
 			});
 		}
@@ -148,7 +153,7 @@ exports.destroy = function(req, res) {
 	var deleteDate = new Date();
 	if (params) {
 		Model.User.findOneAndUpdate({
-			username: params
+			_id: params
 		}, {
 			deletedAt: deleteDate
 		}, function (err, person) {
@@ -161,7 +166,6 @@ exports.destroy = function(req, res) {
 			}
 		});
 	} else {
-
+		res.send(404);
 	}
-
 };
