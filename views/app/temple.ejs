@@ -12,11 +12,9 @@
     <link href="<%= staticAssetHost %>/css/bootstrap.min.css" rel="stylesheet" />
     <link href="<%= staticAssetHost %>/css/bootmetro.css" rel="stylesheet" />
     <link href="<%= staticAssetHost %>/css/bootmetro-tiles.css" rel="stylesheet" />
-    <link href="<%= staticAssetHost %>/css/bootmetro-charms.css" rel="stylesheet" />
     <!-- <link href='css/metro-ui-light.css' rel='stylesheet' /> -->
     <link href="<%= staticAssetHost %>/css/metro-ui-dark.css" rel="stylesheet" />
     <link href="<%= staticAssetHost %>/css/icomoon.css" rel="stylesheet" />
-    <link href="<%= staticAssetHost %>/css/bootmetro-charms.css" rel="stylesheet" />
     <link href="<%= staticAssetHost %>/css/style.css" rel="stylesheet" />
 
   </head>
@@ -24,6 +22,7 @@
   <body class="app-body">
     <app-navigation></app-navigation>
     <div ng-view></div>
+    <app-footer>
     
     <!--JS Files-->
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -34,5 +33,6 @@
     <script src="<%= staticAssetHost %>/js/app/app.js"></script>
     <script src="<%= staticAssetHost %>/js/app/controllers/appDashController.js"></script>
     <script src="<%= staticAssetHost %>/js/app/directives/app-navigation.js"></script>
+    <script src="<%= staticAssetHost %>/js/app/directives/app-footer.js"></script>
   </body>
 </html>
