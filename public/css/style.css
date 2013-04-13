@@ -45,6 +45,12 @@ padding: 9px 0;
   background-color: #014585;
 }
 
+.segments-color{
+  border: none;
+  color: #ffffff;
+  background-color: #B81B6C;
+}
+
 /* charms */
 @keyframes leftcharmslide
 {
@@ -143,7 +149,8 @@ padding: 9px 0;
   left: 0px;
   bottom: 65px;
   width: 320px;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .charms-list li{
@@ -180,52 +187,34 @@ padding: 9px 0;
   overflow:hidden;
 }
 
-/* transitions */
-
-
-
-/*
-#charms-user {
-   height: 100%;
-   display: none;
+#cast-body{
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  bottom: 90px;
+  left: 300px;
 }
 
-#charms-search {
-   color: White;
-   display: none;
-   height: 100%;
-   padding: 40px 20px 20px 20px;
-   width: 265px;
+.cast-member{
+  list-style: none;
+  width: 300px;
+  min-height: 260px;
+  max-width: 300px;
+  margin-bottom: 20px;
+  background-color: #5a5a5a;
 }
 
-#charms-search li {
-   margin-left: -10px;
-   font-size: 10pt;
-   margin: 5px 0px 5px 0px;
+.cast-member h2{
+  padding:10px 20px;
+} 
+
+.cast-member img{
+  height: 180px;
+  width: 180px;
+  padding: 0px 20px 20px;
 }
 
-#charms-search a:link, #charms-search a:visited, #charms-search a:hover, #charms-search a:active {
-   color: White;
-   text-decoration: none;
+.cast-member button{
+  min-width:60px;
+  margin-bottom: 20px;
 }
-
-#charms-searchTextbox {
-   display: none;
-}
-
-ul#searchResults {
-   list-style-type: square;
-}
-
-.charms-block {
-   display: block;
-   float: none;
-   margin-top: 16px;
-}
-
-
-
-.highlight {
-   color: #1BA1E2;
-}
-*/
