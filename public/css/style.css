@@ -11,12 +11,12 @@ padding: 9px 0;
 /* Enable use of floated navbar text */
 .navbar-text.pull-right {
   float: none;
-  padding-left: 5px;
   padding-right: 5px;
+  padding-left: 5px;
 }}
 
 .hero-unit {
-  color:#333333;	
+  color:#333333;  
 }
 
 .btn-large{
@@ -29,68 +29,102 @@ padding: 9px 0;
 }
 
 .app-top-nav{
-	position: fixed;
-	width: 100%;
-	background: #781096;
-	z-index: 2;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  background: #781096;
 }
 
 .app-body{
-	padding-top: 0px;
+  padding-top: 0px;
 }
 
 .cast-color{
   border: none;
-  color: #ffffff;
   background-color: #014585;
+  color: #ffffff;
 }
 
 .segments-color{
   border: none;
+  background-color: #696969;
   color: #ffffff;
-  background-color: #B81B6C;
+}
+
+.segment-color-1{
+  background-color: #00CCFF;
+}
+
+.segment-color-2{
+  background-color: #189800;
+}
+
+.segment-color-3{
+  background-color: #AA40FF;
+}
+
+.segment-color-4{
+  background-color: #FE7C22;
 }
 
 /* charms */
 @keyframes leftcharmslide
 {
   from {left: -320px;}
-  to {left:0px;}
+  to {left: 0px;}
 }
 
 @-webkit-keyframes leftcharmslide /* Safari and Chrome */
 {
   from {left: -320px;}
-  to {left:0px;}
+  to {left: 0px;}
 }
 
 #left-charms {
   position: fixed;
   top: 0px;
   left: 0px;
+  display: none;
+  margin: 0;
+  padding: 0;
   width: 320px;
   height: 100%;
-  padding: 0;
-  margin: 0;
-  display: none;
-  animation:leftcharmslide 2s;
-  -webkit-animation:leftcharmslide 2s
+  -webkit-animation: leftcharmslide 2s;
+  animation: leftcharmslide 2s;
+}
+
+@keyframes charmslide
+{
+  from {right: -250px;}
+  to {right: 0px;}
+}
+
+@-webkit-keyframes charmslide /* Safari and Chrome */
+{
+  from {right: -250px;}
+  to {right: 0px;}
 }
 
 #charms {
   position: fixed;
   top: 0px;
   right: 0px;
-  width: 320px;
-  height: 100%;
-  padding: 0;
-  margin: 0;
   display: none;
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+  width: 250px;
+  height: 100%;
+  -webkit-animation: charmslide 2s;
+  animation: charmslide 2s;
 }
 
-#left-charms .charms-section,
-     #charms .charms-section {
+#left-charms .charms-section{
   margin: 0 40px 40px 40px;
+}
+
+ #charms .charms-section {
+  margin: 0 20px 40px 20px;
 }
 
 #left-charms .charms-header, 
@@ -101,25 +135,25 @@ padding: 9px 0;
 
 #charms .charms-header a.win-command span.win-commandimage.win-commandring,
 #charms .charms-header a.win-command {
-  font-size: 20px;
   width: 32px;
   height: 32px;
-  line-height: 32px;
   vertical-align: top;
+  font-size: 20px;
+  line-height: 32px;
 }
 
 #left-charms .charms-header h2,
      #charms .charms-header h2 {
   display: inline-block;
-  color: #FFF;
   margin-left: 10px;
+  color: #ffffff;
 }
 
 #left-charms button,
      #charms button{
+  min-width: 20px;
   border: none;
   color: #ffffff;
-  min-width: 20px;
 }
 
 
@@ -139,26 +173,26 @@ padding: 9px 0;
 #charms p,
 #charms a,
 #charms label {color: #19BFC9;}
-#charms a:hover {background-color: #216475}
+#charms a:hover {background-color: #216475;}
 
-#charms hr {border: 1px solid #357281}
+#charms hr {border: 1px solid #357281;}
 
 .charms-list{
   position: absolute;
   top: 160px;
-  left: 0px;
   bottom: 65px;
-  width: 320px;
-  overflow-y: auto;
+  left: 0px;
   overflow-x: hidden;
+  overflow-y: auto;
+  width: 320px;
 }
 
 .charms-list li{
   position: relative;
-  list-style: none;
-  height: 54px;
-  width: 320px;
   left: -25px;
+  width: 320px;
+  height: 54px;
+  list-style: none;
 }
 
 .charms-list li:hover{
@@ -169,8 +203,8 @@ padding: 9px 0;
   position: absolute;
   left: 0px;
   padding: 2px 4px;
-  height: 50px;
   width: 50px;
+  height: 50px;
 }
 
 .charms-list span{
@@ -182,8 +216,8 @@ padding: 9px 0;
 
 .charms-list h3{
   position: absolute;
-  left: 60px;
   right: 45px;
+  left: 60px;
   overflow:hidden;
 }
 
@@ -191,17 +225,17 @@ padding: 9px 0;
   position: absolute;
   top: 60px;
   right: 20px;
-  bottom: 90px;
   left: 300px;
+  padding-bottom: 70px;
 }
 
 .cast-member{
-  list-style: none;
-  width: 300px;
-  min-height: 260px;
-  max-width: 300px;
   margin-bottom: 20px;
+  min-height: 260px;
+  max-width: 320px;
+  width: 320px;
   background-color: #5a5a5a;
+  list-style: none;
 }
 
 .cast-member h2{
@@ -209,12 +243,30 @@ padding: 9px 0;
 } 
 
 .cast-member img{
-  height: 180px;
-  width: 180px;
-  padding: 0px 20px 20px;
+  padding: 0px 20px 10px;
+  width: 200px;
+  height: 200px;
 }
 
 .cast-member button{
-  min-width:60px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  min-width: 60px;
+}
+
+.cast-stats{
+  overflow: auto;
+  padding: 0px 20px 20px;
+  width: 280px;
+}
+
+.cast-stats span{
+  width: 30px;
+  height: 22px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.cast-stats h4{
+  font-size: 20px;
+  line-height: 24px;
 }

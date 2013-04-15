@@ -20,6 +20,11 @@ angular.module('appEpiManager', [
 			controller: "appCastController"
   		}).
 
+  		when("/app/segments", {
+			templateUrl: "/app/segments/index",
+			controller: "appCastController"
+  		}).
+
 		otherwise({redirectTo: "/error"});
 
 		$locationProvider.html5Mode(true).hashPrefix('!');
