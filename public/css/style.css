@@ -51,19 +51,19 @@ padding: 9px 0;
   color: #ffffff;
 }
 
-.segment-color-1{
-  background-color: #00CCFF;
+.custom-color-1{
+  background-color: #1F0068;
 }
 
-.segment-color-2{
-  background-color: #189800;
+.custom-color-2{
+  background-color: #B81B1B;
 }
 
-.segment-color-3{
-  background-color: #AA40FF;
+.custom-color-3{
+  background-color: #004D60;
 }
 
-.segment-color-4{
+.custom-color-4{
   background-color: #FE7C22;
 }
 
@@ -163,10 +163,6 @@ padding: 9px 0;
 }
 
 
-#charms-body {
-   min-width: 350px;
-}
-
 #charms h2,
 #charms h3,
 #charms h4,
@@ -177,7 +173,8 @@ padding: 9px 0;
 
 #charms hr {border: 1px solid #357281;}
 
-.charms-list{
+.cast-list,
+.segments-list{
   position: absolute;
   top: 160px;
   bottom: 65px;
@@ -187,19 +184,48 @@ padding: 9px 0;
   width: 320px;
 }
 
-.charms-list li{
-  position: relative;
-  left: -25px;
-  width: 320px;
-  height: 54px;
+#charms .charms-list{
+  position: absolute;
+  top: 110px;
+  bottom: 65px;
+  left: 0px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 250px;
+}
+#left-charms li,
+     #charms li{
   list-style: none;
 }
 
-.charms-list li:hover{
+#left-charms ul,
+     #charms ul{
+margin-left: 0;
+}
+
+.cast-list li{
+  position: relative;
+  left: 0px;
+  width: 320px;
+  height: 54px;
+}
+
+.cast-list li:hover{
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.charms-list img{
+.segments-list li{
+  position: relative;
+  left: 0px;
+  width: 320px;
+  min-height: 54px;
+}
+
+.segments-list li:hover{
+  background-color: #000000;
+}
+
+.cast-list img{
   position: absolute;
   left: 0px;
   padding: 2px 4px;
@@ -207,25 +233,39 @@ padding: 9px 0;
   height: 50px;
 }
 
-.charms-list span{
+   .cast-list span,
+.segments-list span{
   position: absolute;
   top: 18px;
   right: 24px;
   font-size: 25px;
 }
 
-.charms-list h3{
+.cast-list h3{
   position: absolute;
   right: 45px;
   left: 60px;
   overflow:hidden;
 }
 
+.segments-list h3{
+  padding:10px 50px 10px 20px;
+}
+
+
 #cast-body{
   position: absolute;
-  top: 60px;
+  top: 40px;
   right: 20px;
-  left: 300px;
+  left: 320px;
+  padding-bottom: 70px;
+}
+
+#segments-body{
+  position: absolute;
+  top: 40px;
+  right: 250px;
+  left: 320px;
   padding-bottom: 70px;
 }
 
@@ -269,4 +309,18 @@ padding: 9px 0;
 .cast-stats h4{
   font-size: 20px;
   line-height: 24px;
+}
+
+.templates{
+  margin: 0 0 10px 10px;
+  width: 220px;
+  height: auto;
+}
+
+.workspace-header{ 
+  color: #5c5c5c;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-bottom-style: inset;
+  border-color: #5c5c5c;
 }
