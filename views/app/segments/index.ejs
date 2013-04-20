@@ -1,0 +1,82 @@
+<div id="left-charms" class="segments-color" style="display: block;">
+  <div id="theme-charms-section" class="charms-section">
+    <div class="charms-header">
+      <h2>Segments</h2>
+    </div>
+    <form class="form-search">
+      <div class="input-append">
+        <input type="text" placeholder="Search..." class="search-query">
+        <button type="submit" class="btn btn-info">
+          <span class="icon-search-2"></span>
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="segments-list">
+    <ul>
+      <li class="segment custom-color-1">
+        <h3>Introduction</h3>
+        <span class="icon-arrow-6"></span>
+      </li>
+      <li class="segment custom-color-2">
+        <h3>Short Story</h3>
+        <span class="icon-arrow-6"></span>
+      </li>
+      <li class="segment custom-color-3">
+        <h3>News</h3>
+        <span class="icon-arrow-6"></span>
+      </li>
+      <li class="segment custom-color-4">
+        <h3>Special Guest</h3>
+        <span class="icon-arrow-6"></span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!--right-sidebar-->
+<div id="charms" class="segments-color" style="display: block;">
+  <div id="theme-charms-section" class="charms-section">
+    <div class="charms-header">
+      <h2>Show Templates</h2>
+    </div>
+  </div>
+  <div class="charms-list">
+    <ul>
+      <li>
+        <button class="btn btn-primary templates">
+          First of the Month
+        </button>
+        <button class="btn btn-primary templates">
+          Ladies Night
+        </button>
+        <button class="btn btn-primary templates">
+          Album Review
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div id="segments-body">
+  <div class="workspace-header">
+    <div class=" row-fluid">
+      <h2 class="span8">Episode Title</h2>
+      <h3 class="pull-right clearfix">Air Date</h3>
+    </div>
+  </div>
+  <div ng:controller="appSegmentsController" >
+    <ul ui:sortable ng:model="showSegments" class="segments-sortable">
+        <li ng:repeat="item in showSegments" class="showSegments">
+          <a class"remove-segment">
+            <span class="pull-right icon-minus"></span>
+          </a>
+          <span class="pull-left icon-menu-3"></span>
+          <h4 class="center">{{item}}</h4>
+          
+        </li>
+    </ul>
+    <hr />
+    <div ng:repeat="item in showSegments">{{item}}</div>
+</div>
+</div>

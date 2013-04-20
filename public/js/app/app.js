@@ -3,7 +3,8 @@
 // Declare app level module which depends on filters, and services
 angular.module('appEpiManager', [
 	'ngResource',
-  '$strap.directives'
+	'$strap.directives',
+	'ui'
 	]).
 	config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     // <base href="/studio/">
@@ -20,6 +21,16 @@ angular.module('appEpiManager', [
 			controller: "appCastController"
   		}).
 
+  		when("/app/segments", {
+			templateUrl: "/app/segments/index",
+			controller: "appSegmentsController"
+  		}).
+
+  		when("/app/details", {
+  			templateUrl: "/app/details/index",
+  			controller: "appDetailsController"
+  		}).
+
 		otherwise({redirectTo: "/error"});
 
 		$locationProvider.html5Mode(true).hashPrefix('!');
@@ -28,3 +39,4 @@ angular.module('appEpiManager', [
 		$rootScope,$location,$window,$templateCache) {
 
 	}]);
+
