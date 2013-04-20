@@ -47,7 +47,13 @@ padding: 9px 0;
 
 .segments-color{
   border: none;
-  background-color: #696969;
+  background-color: #B81B1B;
+  color: #ffffff;
+}
+
+.details-color{
+  border: none;
+  background-color: #FE7C22;
   color: #ffffff;
 }
 
@@ -267,6 +273,24 @@ margin-left: 0;
   right: 250px;
   left: 320px;
   padding-bottom: 70px;
+}
+
+.segments-sortable{
+  margin:0;
+}
+
+.showSegments, .placeholder {
+    cursor: pointer;
+    padding: 10px;
+    margin:0;
+    width: inherit;
+    border: 1px solid #333;
+    background: #444444;
+    list-style: none;
+}
+
+.placeholder {
+    background: #444444;
 }
 
 .cast-member{
