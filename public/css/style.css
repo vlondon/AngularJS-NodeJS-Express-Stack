@@ -275,6 +275,14 @@ margin-left: 0;
   padding-bottom: 70px;
 }
 
+#details-body{
+  position: absolute;
+  top: 40px;
+  right: 0;
+  left: 320px;
+  padding-bottom: 70px;
+}
+
 .segments-sortable{
   margin:0;
 }
