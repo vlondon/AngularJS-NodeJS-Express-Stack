@@ -12,23 +12,13 @@
       </div>
     </form>
   </div>
-  <div class="segments-list">
+  <div class="segments-list" ng-controller="SortableCTRL">
     <ul>
-      <li class="segment custom-color-1">
-        <h3>Introduction</h3>
-        <span class="icon-arrow-6"></span>
-      </li>
-      <li class="segment custom-color-2">
-        <h3>Short Story</h3>
-        <span class="icon-arrow-6"></span>
-      </li>
-      <li class="segment custom-color-3">
-        <h3>News</h3>
-        <span class="icon-arrow-6"></span>
-      </li>
-      <li class="segment custom-color-4">
-        <h3>Special Guest</h3>
-        <span class="icon-arrow-6"></span>
+      <li ng-repeat="item in allShowSegments" >
+        <a ng-click="add(item)">
+          <h3>{{item}}</h3>
+          <span class="icon-arrow-6"></span>
+        </a>
       </li>
     </ul>
   </div>
@@ -41,17 +31,11 @@
       <h2>Show Templates</h2>
     </div>
   </div>
-  <div class="charms-list">
+<div class="charms-list" ng-controller="SortableCTRL">
     <ul>
-      <li>
-        <button class="btn btn-primary templates">
-          First of the Month
-        </button>
-        <button class="btn btn-primary templates">
-          Ladies Night
-        </button>
-        <button class="btn btn-primary templates">
-          Album Review
+      <li ng-repeat="item in showTemplates" >
+        <button ng-click="createShow()" class="btn btn-primary templates">
+          {{item.name}}
         </button>
       </li>
     </ul>
@@ -65,18 +49,19 @@
       <h3 class="pull-right clearfix">Air Date</h3>
     </div>
   </div>
-  <div ng:controller="appSegmentsController" >
-    <ul ui:sortable ng:model="showSegments" class="segments-sortable">
-        <li ng:repeat="item in showSegments" class="showSegments">
+<div ng-controller="SortableCTRL">
+    <ul id="sortable" class="segments-sortable">
+        <li ng-repeat="item in sortableArray" class="showSegments">
           <a class"remove-segment">
-            <span class="pull-right icon-minus"></span>
+            <span ng-click="remove( item )"class="pull-right icon-minus"></span>
           </a>
           <span class="pull-left icon-menu-3"></span>
           <h4 class="center">{{item}}</h4>
-          
         </li>
     </ul>
-    <hr />
-    <div ng:repeat="item in showSegments">{{item}}</div>
-</div>
+    <button ng-click="add('Generic Segment')">Add Generic Segment</button>
+    <button ng-click="remove('Generic Segment')">Remove Generic Segment</button>
+    <button ng-click="remove()">Remove</button>
+    <hr>
+    <pre ng-bind="sortableArray|json"></pre>
 </div>
