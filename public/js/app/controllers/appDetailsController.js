@@ -2,14 +2,14 @@
 
 angular.module('appEpiManager').
   controller('appDetailsController', [
-        '$scope',
+    '$scope',
     function($scope) {
       $scope.title = "EpiManager";
-      $scope.showSegments = ["Introduction", "ShortStory", "News", "Special Guest"];
+      // $scope.showSegments = ["Introduction", "ShortStory", "News", "Special Guest"];
     }
   ])
 
-angular.bootstrap(document, ['appEpiManager']);
+// angular.bootstrap(document, ['appEpiManager']);
 
       /*$scope.currentProject = [
       {

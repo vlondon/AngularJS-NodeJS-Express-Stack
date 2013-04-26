@@ -65,7 +65,26 @@
       <h3 class="pull-right clearfix">Air Date</h3>
     </div>
   </div>
-  <div ng:controller="appSegmentsController" >
+<div ng-controller="SortableCTRL">
+    <ul id="sortable" class="segments-sortable">
+        <li ng-repeat="item in sortableArray" class="showSegments">
+          <a class"remove-segment">
+            <span class="pull-right icon-minus"></span>
+          </a>
+          <span class="pull-left icon-menu-3"></span>
+          <h4 class="center">{{item}}</h4>
+        </li>
+    </ul>
+    
+    <button ng-click="add('placeholding add button')">Add</button>
+
+    <button ng-click="remove('placeholding add button')">Remove</button>
+    
+    <hr>
+    <pre ng-bind="sortableArray|json"></pre>
+</div>
+
+<!--   <div ng:controller="appSegmentsController" >
     <ul ui:sortable ng:model="showSegments" class="segments-sortable">
         <li ng:repeat="item in showSegments" class="showSegments">
           <a class"remove-segment">
@@ -76,7 +95,8 @@
           
         </li>
     </ul>
-    <hr />
-    <div ng:repeat="item in showSegments">{{item}}</div>
-</div>
+  <hr/>
+  <div ng:repeat="item in showSegments">{{item}}</div>
+
+  </div -->
 </div>
