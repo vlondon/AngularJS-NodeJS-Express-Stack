@@ -6,34 +6,22 @@
       </div>
     </div>
     <div class="details-list">
-      <ul  ng-init="selected = 1">
-        <li ng-class="{active: selected == 1}" class="custom-color-" >
-          <a href ng-click="selected=1">
-            <h3>Introduction</h3>
-            <span class="icon-arrow-6"></span>
-          </a>
-        </li>
-        <li ng-class="{active: selected == 2}" class="custom-color-">
-          <a href ng-click="selected=2">
-            <h3>Short Story</h3>
-            <span class="icon-arrow-6"></span>
-          </a>
-        </li>
-        <li ng-class="{active: selected == 3}" class="custom-color-" >
-          <a href ng-click="selected=3">
-            <h3>News</h3>
-            <span class="icon-arrow-6"></span>
-          </a>
-        </li>
-        <li  ng-class="{active: selected == 4}" class="custom-color-">
-          <a href ng-click="selected=4">
-            <h3>Special Guest</h3>
+      <ul  ng-init="selected = thisShowSegments[0]">
+        <li ng-repeat="item in thisShowSegments" ng-class="{active: selected == item}" class="custom-color-" >
+          <a href ng-click="selected = item">
+            <h3>{{item}}</h3>
             <span class="icon-arrow-6"></span>
           </a>
         </li>
       </ul>
     </div>
   </div>
+</div>
+
+<div id="element-bar" class="details-color">
+  <ul>
+    <li class="test"></li>  
+  </ul>
 </div>
 
 <div id="details-body">
@@ -44,24 +32,8 @@
     </div>
   </div>
   <div class="tab-content">
-    <ul id="element-bar">
-      <li class="test"><p>hey whats up</p></li>
-  
-    </ul>
-
-    <div ng-show="selected == 1">
-      This is Introduction content...
-    </div>
-
-    <div ng-show="selected == 2">
-        This is ShortStory content...
-    </div>
-
-    <div ng-show="selected == 3">
-        This is News content...
-    </div>
-    <div ng-show="selected == 4">
-        This is Special Guest content...
+    <div ng-repeat="item in thisShowSegments" ng-show="selected == item">
+      This is {{item}} content..
     </div>
   </div>
 </div>

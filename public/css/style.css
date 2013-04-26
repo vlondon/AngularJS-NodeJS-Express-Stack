@@ -312,7 +312,7 @@ padding: 9px 0;
 #details-body{
   position: absolute;
   top: 40px;
-  right: 0;
+  right: 100px;
   left: 260px;
   padding-bottom: 70px;
 }
@@ -396,7 +396,7 @@ padding: 9px 0;
   background-color: #1d1d1d;
 }
 
-
+a,
 a:link,
 a:visited,
 a:hover,

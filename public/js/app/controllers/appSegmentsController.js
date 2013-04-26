@@ -5,7 +5,13 @@ angular.module('appEpiManager').
     '$scope',
     function($scope) {
       $scope.title = "EpiManager";
-      $scope.showSegments = ["Introduction", "ShortStory", "News", "Special Guest"];
+      $scope.allShowSegments = ["Introduction", "ShortStory", "News", "Special Guest", "Obituary", "Album Review", "Street Interview", "Game"];
+      $scope.thisShowSegments = ["Segment1","Segment2","Segment3","Segment4"];
+      $scope.showTemplates = [
+        {"name":"First of the Month", "segments":["Introduction", "News", "Game"]},
+        {"name":"Ladies Night", "segments":["Introduction", "Ladies Night", "Game"]},
+        {"name":"Album Review", "segments":["Introduction", "Album Review", "Game"]}
+      ];
     }
   ])
 
@@ -13,7 +19,7 @@ angular.module('appEpiManager').
   function SortableCTRL($scope) {
     var sortableEle;
     
-    $scope.sortableArray = $scope.showSegments;
+    $scope.sortableArray = $scope.thisShowSegments;
 
     $scope.add = function(segment) {
       $scope.sortableArray.push( segment );
@@ -43,6 +49,8 @@ angular.module('appEpiManager').
         update: $scope.dragEnd
     });
   }
+
+
 
 
 
