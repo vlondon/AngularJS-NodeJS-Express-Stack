@@ -20,6 +20,10 @@ var selectedValues = '_id username name email lastLogin roleId createdAt';
 exports.index = function(req, res) {
 	async.waterfall([
 		function (cb) {
+			console.log("-------" + req.user);
+			cb(null);
+		},
+		function (cb) {
 			var params = url.parse(req.url, true).query;
 			if (_.keys(params).length) {
 				cb(null, params);

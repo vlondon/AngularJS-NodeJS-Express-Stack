@@ -11,26 +11,30 @@ angular.module('backsideEpiManager', [
 
 		$routeProvider.
 
-		when("/backside", {
-			templateUrl: "/backside/dashboard/index",
-			controller: "backsideController"
-  	}).
+      when("/backside/login", {
+        templateUrl: "/backside/login/login",
+        controller: "loginController"
+      }).
 
-    when("/backside/users", {
-      templateUrl: "/backside/users/index",
-      controller: "usersController"
-    }).
+  		when("/backside", {
+  			templateUrl: "/backside/dashboard/index",
+  			controller: "backsideController"
+  		}).
 
-    when("/backside/users/new", {
-      templateUrl: "/backside/users/new",
-      controller: "usersNewController"
-    }).
+      when("/backside/users", {
+        templateUrl: "/backside/users/index",
+        controller: "usersController"
+      }).
 
-    when("/backside/users/:username", {
-      templateUrl: "/backside/users/edit",
-      controller: "usersEditController"
-    }).
+      when("/backside/users/new", {
+        templateUrl: "/backside/users/new",
+        controller: "usersNewController"
+      }).
 
+      when("/backside/users/:username", {
+        templateUrl: "/backside/users/edit",
+        controller: "usersEditController"
+      }).
 
 		otherwise({redirectTo: "/error"});
 

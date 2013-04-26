@@ -1,0 +1,19 @@
+<form class="form-horizontal">
+  <div class="control-group">
+    <label class="control-label" for="username">Username</label>
+    <div class="controls">
+      <input type="text" id="username" ng-model="user.username" placeholder="Username" ui-event="{ blur: 'checkUsername()' }">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputPassword">Password</label>
+    <div class="controls">
+      <input type="password" id="inputPassword" ng-model="user.password" placeholder="Password">
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <button type="submit" ng-click="login()" class="btn">Login</button>
+    </div>
+  </div>
+</form>
