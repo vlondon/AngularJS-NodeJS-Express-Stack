@@ -2,16 +2,9 @@
 /**
  * Module dependencies.
  */
-
- GLOBAL.EpiManager = {};
- GLOBAL.EpiManager.Model = require('./model/mongo');
-
 var express = require('express')
   , fs = require('fs')
   , http = require('http')
-  , passport = require('passport')
-  , passportConfig = require('./lib/passport')
-  , LocalStrategy = require('passport-local').Strategy
   , path = require('path');
 
 require('express-resource');
@@ -26,8 +19,6 @@ app.configure(function(){
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
-  app.use(passport.initialize());
-  app.use(passport.session());
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
 });
@@ -38,18 +29,10 @@ app.configure('development', function(){
 });
 
 var appRoutes = require('./routes/app')(app);
-var wwwRoutes = require('./routes/www')(app);
-var resourceRoutes = require('./routes/resources')(app);
-var authRoutes = require('./routes/auth')(app);
-var backsideRoutes = require('./routes/backside')(app);
-
-// app.get('*', function (req, res) {
-//   res.redirect('/');
-// });
 
 app.locals({
   staticAssetHost: 'http://localhost:3000',
-  title: 'EpiManager'
+  title: 'Demo App'
 });
 
 http.createServer(app).listen(app.get('port'), function(){

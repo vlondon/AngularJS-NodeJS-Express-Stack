@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('appEpiManager').
+angular.module('DemoApp').
   directive('appNavigation', ['$location', function($location) {
     return {
       restrict: 'E',

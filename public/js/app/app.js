@@ -1,40 +1,25 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('appEpiManager', [
+angular.module('DemoApp', [
 	'ngResource',
 	'$strap.directives'
 	]).
 	config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     // <base href="/studio/">
 
-		$routeProvider.
+	$routeProvider.
 
-		when("/app", {
-			templateUrl: "/app/dashboard/index",
-			controller: "appDashController"
-  	}).
-
-		when("/app/cast", {
-			templateUrl: "/app/cast/index",
-			controller: "appCastController"
-  	}).
-
-  	when("/app/segments", {
+	when("/app/segments", {
 			templateUrl: "/app/segments/index",
-			controller: "appSegmentsController"
-  	}).
+			controller: "appController"
+   }).
+	when("/app/goodbye", {
+			templateUrl: "/app/goodbye/index",
+			controller: "appController"
+   }).
 
-  	when("/app/details", {
-			templateUrl: "/app/details/index",
-			controller: "appDetailsController"
-  	}).
-
-		otherwise({redirectTo: "/error"});
+		otherwise({redirectTo: "/app/segments"});
 
 		$locationProvider.html5Mode(true).hashPrefix('!');
-}]).
-	run(['$rootScope','$location','$window', '$templateCache', function(
-		$rootScope,$location,$window,$templateCache) {
-
-	}]);
+}])

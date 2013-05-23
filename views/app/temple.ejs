@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="appEpiManager">
+<html ng-app="DemoApp">
   <head>
     <meta charset="utf-8">
     <title><%= title %></title>
@@ -8,11 +8,10 @@
     <meta name="author" content="">
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' />
-    <link href="<%= staticAssetHost %>/css/bootstrap-responsive.min.css" rel="stylesheet" /> 
+    <link href="<%= staticAssetHost %>/css/bootstrap-responsive.min.css" rel="stylesheet" />
     <link href="<%= staticAssetHost %>/css/bootstrap.min.css" rel="stylesheet" />
     <link href="<%= staticAssetHost %>/css/bootmetro.css" rel="stylesheet" />
     <link href="<%= staticAssetHost %>/css/bootmetro-tiles.css" rel="stylesheet" />
-    <!-- <link href='css/metro-ui-light.css' rel='stylesheet' /> -->
     <link href="<%= staticAssetHost %>/css/metro-ui-dark.css" rel="stylesheet" />
     <link href="<%= staticAssetHost %>/css/icomoon.css" rel="stylesheet" />
     <link href="<%= staticAssetHost %>/css/style.css" rel="stylesheet" />
@@ -23,7 +22,7 @@
     <app-navigation></app-navigation>
     <div ng-view></div>
     <app-footer>
-    
+
     <!--JS Files-->
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="<%= staticAssetHost %>/js/lib/bootstrap.min.js"></script>
@@ -33,11 +32,7 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-strap/0.7.1/angular-strap.min.js"></script>
     <script src="https://raw.github.com/angular-ui/angular-ui/master/build/angular-ui.min.js"></script>
     <script src="<%= staticAssetHost %>/js/app/app.js"></script>
-    <script src="<%= staticAssetHost %>/js/app/controllers/appDashController.js"></script>
-    <script src="<%= staticAssetHost %>/js/app/controllers/appCastController.js"></script>
-    <script src="<%= staticAssetHost %>/js/app/controllers/appDetailsController.js"></script>
-    <script src="<%= staticAssetHost %>/js/app/controllers/appSegmentsController.js"></script>
-
+    <script src="<%= staticAssetHost %>/js/app/controllers/appController.js"></script>
     <script src="<%= staticAssetHost %>/js/app/directives/app-navigation.js"></script>
     <script src="<%= staticAssetHost %>/js/app/directives/app-footer.js"></script>
   </body>

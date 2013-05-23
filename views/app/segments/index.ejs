@@ -1,20 +1,20 @@
-<div id="left-charms" class="segments-color" style="display: block;">
+<div id="left-charms" class="segments-color">
   <div id="theme-charms-section" class="charms-section">
     <div class="charms-header">
-      <h2>Segments</h2>
+      <h2>Click to Add</h2>
     </div>
     <form class="form-search">
       <div class="input-append">
-        <input type="text" placeholder="Search..." class="search-query">
+        <input ng-model="search" type="text" placeholder="Search..." class="search-query">
         <button type="submit" class="btn btn-info">
           <span class="icon-search-2"></span>
         </button>
       </div>
     </form>
   </div>
-  <div class="segments-list" ng-controller="SortableCTRL">
+  <div class="segments-list">
     <ul>
-      <li ng-repeat="item in allShowSegments" >
+      <li class="clickable" ng-repeat="item in allShowSegments | filter:search" >
         <a ng-click="add(item)">
           <h3>{{item}}</h3>
           <span class="icon-arrow-6"></span>
@@ -28,13 +28,13 @@
 <div id="charms" class="segments-color" style="display: block;">
   <div id="theme-charms-section" class="charms-section">
     <div class="charms-header">
-      <h2>Show Templates</h2>
+      <h2>Click Templates</h2>
     </div>
   </div>
-<div class="charms-list" ng-controller="SortableCTRL">
+<div class="charms-list">
     <ul>
       <li ng-repeat="item in showTemplates" >
-        <button ng-click="createShow()" class="btn btn-primary templates">
+        <button ng-click="createShow(item.segments)" class="btn btn-primary templates">
           {{item.name}}
         </button>
       </li>
@@ -45,23 +45,26 @@
 <div id="segments-body">
   <div class="workspace-header">
     <div class=" row-fluid">
-      <h2 class="span8">Episode Title</h2>
-      <h3 class="pull-right clearfix">Air Date</h3>
+      <h2 class="span8">Drag'n'Drop Sorting</h2>
+      <h3 class="pull-right clearfix">(Click Around)</h3>
     </div>
   </div>
-<div ng-controller="SortableCTRL">
+<div>
     <ul id="sortable" class="segments-sortable">
         <li ng-repeat="item in sortableArray" class="showSegments">
           <a class"remove-segment">
-            <span ng-click="remove( item )"class="pull-right icon-minus"></span>
+            <span ng-click="remove( item )"class="pull-right icon-remove clickable"></span>
           </a>
           <span class="pull-left icon-menu-3"></span>
           <h4 class="center">{{item}}</h4>
         </li>
     </ul>
-    <button ng-click="add('Generic Segment')">Add Generic Segment</button>
-    <button ng-click="remove('Generic Segment')">Remove Generic Segment</button>
-    <button ng-click="remove()">Remove</button>
+    <button ng-click="add('Quick')"> "Quick" Add</button>
+    <button ng-click="remove('Quick')"> "Quick" Remove</button>
+    <button ng-click="remove()">Remove Last Item</button>
     <hr>
-    <pre ng-bind="sortableArray|json"></pre>
+    <div class="json">
+      <p>Preview JSON</p>
+      <pre ng-bind="sortableArray|json"></pre>
+    </div>
 </div>

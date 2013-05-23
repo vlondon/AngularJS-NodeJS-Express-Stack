@@ -1,9 +1,13 @@
 <div class="navbar navbar-inverse navbar-fixed-top" bs-navbar>
   <div class="navbar-inner">
     <div class="container-fluid">
-    	<a class="brand" href="/backside">My Project Name</a>
+    	<a ng-controller="appController" class="brand" href="">Demo App - {{name}}</a>
       <div class="pull-right">
-        <button class="btn btn-warning" type="button">Logout</button>
+          <a href="/app/goodbye">
+            <button class="btn btn-warning" type="button">
+              Goodbye
+            </button>
+          </a>
       </div>
     </div>
   </div>
