@@ -1,9 +1,13 @@
 module.exports = function(app) {
   var routing = this;
 
+  app.get('/', function (req, res) {
+    return res.render('app/temple');
+  });
+
   app.get('/app', function (req, res) {
     return res.render('app/temple');
-  })
+  });
 
   app.get('/app/directives/navigation', function (req, res) {
     return res.render("app/directives/navigation");
@@ -17,10 +21,10 @@ module.exports = function(app) {
       res.render('app/temple');
     }
   });
-      
+
   app.get('/app/:directory/:view', function(req, res) {
     res.render("app/"+req.params.directory+"/"+req.params.view);
   });
-  
+
   return routing;
 };
